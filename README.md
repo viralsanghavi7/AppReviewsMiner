@@ -3,6 +3,9 @@ Technical-AppReviews
 
 This proposal looks good.
 
+Update: Some nice new work that should be a good inspiration:
+http://conferences.computer.org/vissoft/2014/papers/6150a167.pdf
+
 ### Some issues to consider:
 
 * Your first priority is to get the review data, ASAP.  Let me know if you have have trouble.
