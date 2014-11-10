@@ -1,0 +1,14 @@
+{% extends "ReviewMiner/Layout.html" %}
+
+{% block branding %}
+    <a class="navbar-brand" href="#banner">Mobile Application Reviews Mining</a>
+{% endblock %}
+{% block content %}
+        <h1>App Review Mining content</h1>
+
+        <form action="{% url 'ReviewMiner:uploadComplete'%}" method="post" enctype="multipart/form-data">
+             {% csrf_token %}
+            <input id="uploadbutton" type="file" value="Browse" name="file" accept="csv" />
+            <input type="submit" value="Upload" />
+        </form>
+{% endblock %}

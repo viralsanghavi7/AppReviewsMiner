@@ -1,0 +1,106 @@
+{% extends "ReviewMiner/Layout.html" %}
+
+{% block branding %}
+    <a class="navbar-brand" href="#banner">Mobile Application Reviews Mining</a>
+{% endblock %}
+{% block content %}
+        <h1>App Review Mining content</h1>
+
+
+        <div class="nav-container criteria_links" style="float: left; height: 500px">
+                            <ul class="nav navbar-right">
+
+
+                            <li><a onclick='displayAll();' href="#">All</a></li><br/>
+                            <li><a onclick='changeSelection("Performance");' href="#">Performance</a></li><br/>
+                            <li><a onclick='changeSelection("UserInterface");' href="#">User Interface</a></li><br/>
+                            <li><a onclick='changeSelection("Request");' href="#">Request</a></li><br/>
+                            <li><a onclick='changeSelection("General");' href="#">General</a></li><br/>
+                            <li><a onclick='changeSelection("Compatibility");' href="#">Compatibility</a></li><br/>
+                            </ul>
+        </div>
+
+
+        {% for reviewCategoryList in allReviews %}
+
+            <div id="{{reviewCategoryList.0.1}}" class="col-xs-10 col-sm-14 review_table">
+                <table style="width:100%">
+                    <col width="130">
+                    <col width="80">
+                    <thead>
+                      <tr>
+
+                        <th>Date</th>
+                        <th>Rating</th>
+                        <th>Review</th>
+                      </tr>
+                    </thead>
+
+
+                    {%   for reviewList in reviewCategoryList %}
+
+
+
+                    <tbody>
+                      <tr>
+                        <td>{{  reviewList.0.0 }}</td>
+                        <td>{{  reviewList.0.1 }}</td>
+                        <td>
+
+                            {%  for hitWord in reviewList.2%}
+                                    {% for reviewWord in reviewList.0.3 %}
+
+                                        {% if reviewList.1 == 'Request' %}
+                                            {% if reviewWord in hitWord %}
+                                            <b>{{reviewWord}}</b>
+                                            {% else %}
+                                                {{reviewWord}}
+                                            {% endif %}
+                                         {%  else %}
+                                            {% if hitWord == reviewWord%}
+                                                <b>{{reviewWord}}</b>
+                                            {% else %}
+                                                {{reviewWord}}
+                                            {% endif %}
+                                        {% endif %}
+                                    {%  endfor %}
+
+                            {%  endfor %}
+
+                        </td>
+                      </tr>
+                    </tbody>
+
+                    {% endfor %}
+
+                 </table>
+
+            </div>
+
+        {% endfor %}
+
+
+
+    <script type="text/javascript">
+        function changeSelection(divId){
+
+            document.getElementById('Performance').style.display = 'none';
+            document.getElementById('UserInterface').style.display = 'none';
+            document.getElementById('Compatibility').style.display = 'none';
+            document.getElementById('Request').style.display = 'none';
+            document.getElementById('General').style.display = 'none';
+            document.getElementById(divId).style.display = 'block';
+
+        }
+
+        function displayAll(){
+
+            document.getElementById('Performance').style.display = 'block';
+            document.getElementById('UserInterface').style.display = 'block';
+            document.getElementById('Compatibility').style.display = 'block';
+            document.getElementById('Request').style.display = 'block';
+            document.getElementById('General').style.display = 'block';
+        }
+
+    </script>
+{% endblock %}

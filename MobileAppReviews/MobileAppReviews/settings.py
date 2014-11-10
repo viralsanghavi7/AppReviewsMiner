@@ -1,5 +1,5 @@
 """
-Django settings for AppReviewsWeb project.
+Django settings for MobileAppReviews project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import os.path
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -18,12 +17,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')8nu(rkmo3a-u*6+*%pu1bv7sq@gy#fj+bgudjwgyntttvan28'
+SECRET_KEY = '4&qdva-$4ub09c+y=pw@ok=n3ilzo*hi(e(rlbaescz7wpyecu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+
+#for storing all the templates
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 ALLOWED_HOSTS = []
 
@@ -31,24 +33,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+
+    #newly created app
+    'ReviewMiner',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',
-)
 
 
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(
-        os.path.dirname(__file__),
-        'static',
-    ),
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,9 +57,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'AppReviewsWeb.urls'
+ROOT_URLCONF = 'MobileAppReviews.urls'
 
-WSGI_APPLICATION = 'AppReviewsWeb.wsgi.application'
+WSGI_APPLICATION = 'MobileAppReviews.wsgi.application'
 
 
 # Database
@@ -95,7 +91,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
-)
-
+# Absolute filesystem path to the directory that will hold user-uploaded files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'UploadedFiles')
