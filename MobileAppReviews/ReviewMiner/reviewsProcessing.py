@@ -141,12 +141,11 @@ def getprocessedreviews():
         print(member)
 
 
-    all_processed_review.append(performance_final_list)
-    all_processed_review.append(compatibility_final_list)
-    all_processed_review.append(userinterface_final_list)
-    all_processed_review.append(request_final_list)
-    all_processed_review.append(general_final_list)
-
+    all_processed_review.append([performance_final_list,performance])
+    all_processed_review.append([userinterface_final_list,userinterface])
+    all_processed_review.append([request_final_list,request])
+    all_processed_review.append([general_final_list,general])
+    all_processed_review.append([compatibility_final_list,compatibility])
     return  all_processed_review
 
 
