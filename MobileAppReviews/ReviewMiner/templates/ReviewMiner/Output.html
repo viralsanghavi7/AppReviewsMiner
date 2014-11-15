@@ -4,35 +4,41 @@
     <a class="navbar-brand" href="#banner">Mobile Application Reviews Mining</a>
 {% endblock %}
 {% block content %}
-        
+{{totalList.1 }}
         <h1>App Review Mining content</h1>
 
 
-        <div class="nav-container criteria_links" style="float: left; height: 500px">
+        <div id="criteria_links" class="nav-container criteria_links" style="float: left; height: auto">
                             <ul class="nav navbar-right">
 
 
-                            <li><a onclick='displayAll();' href="#">All</a></li><br/>
+                            <li><a onclick='changeSelection("all_reviews");' href="#">All</a></li><br/>
                             <li><a onclick='changeSelection("Performance");' href="#">Performance</a></li><br/>
                             <li><a onclick='changeSelection("UserInterface");' href="#">User Interface</a></li><br/>
-                            <li><a onclick='changeSelection("Request");' href="#">Request</a></li><br/>
-                            <li><a onclick='changeSelection("General");' href="#">General</a></li><br/>
                             <li><a onclick='changeSelection("Compatibility");' href="#">Compatibility</a></li><br/>
+                            <li><a onclick='changeSelection("General");' href="#">General</a></li><br/>
+                            <li><a onclick='changeSelection("Request");' href="#">Request</a></li><br/>
+
                             </ul>
         </div>
 
 
-        {% for reviewCategoryList in allReviews %}
+        {% for reviewCategoryList in totalList.0 %}
+
 
             <div id="{{reviewCategoryList.1}}" class="col-xs-10 col-sm-14 review_table">
-                <table style="width:100%">
-                    <col width="130">
-                    <col width="80">
+                <b>{{ reviewCategoryList.1 }}</b>
+                <table class="table" style="width:100%">
+                    <col width="100">
+                    <col width="20">
+                    <col width="100">
+                    <col width="600">
                     <thead>
                       <tr>
 
                         <th>Date</th>
                         <th>Rating</th>
+                        <th>Title</th>
                         <th>Review</th>
                       </tr>
                     </thead>
@@ -46,9 +52,26 @@
                       <tr>
                         <td>{{  reviewList.0.0 }}</td>
                         <td>{{  reviewList.0.1 }}</td>
+
+                        <td>
+                          {%  for titleWord in reviewList.0.2 %}
+                                {% if reviewList.3 %}
+
+                                        {% if titleWord in reviewList.3 %}
+                                                <b>{{titleWord}}</b>
+                                        {% else %}
+                                                {{titleWord}}
+                                        {% endif %}
+                                {% else %}
+                                     {{titleWord}}
+                                {% endif %}
+                          {% endfor %}
+                        </td>
                         <td>
 
-                            {%  for hitWord in reviewList.2%}
+                            {% if reviewList.2 %}
+                             {%  for hitWord in reviewList.2%}
+
                                     {% for reviewWord in reviewList.0.3 %}
 
                                         {% if reviewList.1 == 'Request' %}
@@ -66,7 +89,13 @@
                                         {% endif %}
                                     {%  endfor %}
 
-                            {%  endfor %}
+                             {%  endfor %}
+                            {% else %}
+                                    {% for reviewWord in reviewList.0.3 %}
+                                            {{reviewWord}}
+                                    {% endfor %}
+                            {% endif %}
+
 
                         </td>
                       </tr>
@@ -80,6 +109,52 @@
 
         {% endfor %}
 
+
+        <div id="all_reviews" class="col-xs-10 col-sm-14 review_table">
+        <b> All Reviews </b>
+
+
+            <table class="table" style="width:100%">
+                    <col width="100">
+                    <col width="20">
+                    <col width="100">
+                    <col width="300">
+                    <thead>
+                      <tr>
+
+                        <th>Date</th>
+                        <th>Rating</th>
+                        <th>Title</th>
+                        <th>Review</th>
+                      </tr>
+                    </thead>
+              <tbody>
+        {% for reviewCategoryList in totalList.1 %}
+
+                      <tr>
+                        <td>{{  reviewCategoryList.0.0 }}</td>
+                        <td>{{  reviewCategoryList.0.1 }}</td>
+
+                        <td>
+                       {% for titleWord in reviewCategoryList.0.2 %}
+                        {{  titleWord }}
+                       {% endfor %}
+                        </td>
+
+
+                         <td>
+                       {% for reviewWord in reviewCategoryList.0.3 %}
+                        {{  reviewWord }}
+                       {% endfor %}
+                        </td>
+
+                      </tr>
+
+
+        {% endfor %}
+              </tbody>
+
+            </table>
 
 
 
