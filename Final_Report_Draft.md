@@ -13,17 +13,19 @@ Every android application developer gets their review data in csv (comma separat
 - [Get the reviews data from play store for your android app]
 
 Our project is a web application which allows the developer to upload their csv file on the site.
-![Home](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/MobileAppReviews/Images/HomePage.jpg)
+![Home](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/HomePage.jpg)
 
 Then we have defined various criteria for mobile applications such as Performance, User Interface, Compatibility, Request by User, General improvements. When you click on `upload` button on the home page, it will show you the reviews which are most helpful partitioned as per the criteria. 
-![Output](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/MobileAppReviews/Images/Working.gif)
+![Output](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/Working.gif)
+
+
 
 This application will parse each review to perform natural language processing on each of the review text and it tries to find out the whether the review is related to performance, compatibility or any other criteria.
 
 >For example, If a review says `‘It is unplayable game. Hanging on my Google Nexus.’` This type of review is helpful for mobile developer. It will allow developer to understand what the problem is and decide upon the appropriate action to take to improve. Like in this review, user is mentioning that the application is not compatible with his/her cell Google Nexus. Our application will categorize this review in the category of Performance and Compatibility based on the text of review and natural language processing on that text. 
 
-video:
-[![Home](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/MobileAppReviews/Images/HomePage.jpg)](http://youtu.be/o0jNeUcssU0)
+For detailed understanding of the application working please refer following video: 
+[![Home](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/HomePage.jpg)](http://youtu.be/o0jNeUcssU0)
 
 ##Features
 
@@ -63,4 +65,3 @@ ICSE ’14, May 31-June 7, 2014, Hyderabad, India
 [Dr. Christopher J Parnin]:(http://www.chrisparnin.me/)
 [Why People Hate Your App — Making Sense of User Feedback in a Mobile App Store]:(http://www.cs.cmu.edu/~leili/pubs/fu-kdd2013-wiscom.pdf)
 [AR-Miner: Mining Informative Reviews for Developers from Mobile App Marketplace]:(http://www.cais.ntu.edu.sg/~nchen1/AR-Miner/icse14-preprint.pdf)
-
