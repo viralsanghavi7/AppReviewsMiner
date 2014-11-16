@@ -45,3 +45,8 @@ tr th:last-child {
     border-bottom-right-radius: 6px;
     margin-bottom:  10px;
 }
+
+.screenshots
+{
+    border: 1px solid #ddd;
+}

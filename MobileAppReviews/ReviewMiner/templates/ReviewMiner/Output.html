@@ -1,33 +1,37 @@
 {% extends "ReviewMiner/Layout.html" %}
 
 {% block branding %}
-    <a class="navbar-brand" href="#banner">Mobile Application Reviews Mining</a>
+    <a class="navbar-brand" href="{% url 'ReviewMiner:home'%}">Mobile Application Reviews Mining</a>
 {% endblock %}
-{% block content %}
-{{totalList.1 }}
-        <h1>App Review Mining content</h1>
 
+{% block nav-output %}
+    <li id="liOutput" class="active"><a href="#">Output</a></li>
+{% endblock %}
+
+{% block content %}
+        <div class="page-header">
+        <h1>App Review Mining Output</h1>
+        </div>
+        <a href="{% url 'ReviewMiner:home'%}" class="btn btn-primary btn-lg pull-right" role="button">Try Again</a>
 
         <div id="criteria_links" class="nav-container criteria_links" style="float: left; height: auto">
-                            <ul class="nav navbar-right">
+            <ul class="nav navbar-right">
 
+                <li><a onclick='changeSelection("all_reviews");' href="#">All</a></li><br/>
+                <li><a onclick='changeSelection("Performance");' href="#">Performance</a></li><br/>
+                <li><a onclick='changeSelection("UserInterface");' href="#">User Interface</a></li><br/>
+                <li><a onclick='changeSelection("Compatibility");' href="#">Compatibility</a></li><br/>
+                <li><a onclick='changeSelection("General");' href="#">General</a></li><br/>
+                <li><a onclick='changeSelection("Request");' href="#">Request</a></li><br/>
 
-                            <li><a onclick='changeSelection("all_reviews");' href="#">All</a></li><br/>
-                            <li><a onclick='changeSelection("Performance");' href="#">Performance</a></li><br/>
-                            <li><a onclick='changeSelection("UserInterface");' href="#">User Interface</a></li><br/>
-                            <li><a onclick='changeSelection("Compatibility");' href="#">Compatibility</a></li><br/>
-                            <li><a onclick='changeSelection("General");' href="#">General</a></li><br/>
-                            <li><a onclick='changeSelection("Request");' href="#">Request</a></li><br/>
-
-                            </ul>
+            </ul>
         </div>
 
 
         {% for reviewCategoryList in totalList.0 %}
 
 
-            <div id="{{reviewCategoryList.1}}" class="col-xs-10 col-sm-14 review_table">
-                <b>{{ reviewCategoryList.1 }}</b>
+            <div id="{{reviewCategoryList.1}}" class="col-xs-10 review_table">
                 <table class="table" style="width:100%">
                     <col width="100">
                     <col width="20">
@@ -111,51 +115,45 @@
 
 
         <div id="all_reviews" class="col-xs-10 col-sm-14 review_table">
-        <b> All Reviews </b>
-
-
             <table class="table" style="width:100%">
-                    <col width="100">
-                    <col width="20">
-                    <col width="100">
-                    <col width="300">
-                    <thead>
-                      <tr>
+                <col width="100">
+                <col width="20">
+                <col width="100">
+                <col width="300">
+                <thead>
+                  <tr>
 
-                        <th>Date</th>
-                        <th>Rating</th>
-                        <th>Title</th>
-                        <th>Review</th>
-                      </tr>
-                    </thead>
-              <tbody>
-        {% for reviewCategoryList in totalList.1 %}
+                    <th>Date</th>
+                    <th>Rating</th>
+                    <th>Title</th>
+                    <th>Review</th>
+                  </tr>
+                </thead>
 
-                      <tr>
-                        <td>{{  reviewCategoryList.0.0 }}</td>
-                        <td>{{  reviewCategoryList.0.1 }}</td>
+                <tbody>
+                    {% for reviewCategoryList in totalList.1 %}
+                          <tr>
+                            <td>{{  reviewCategoryList.0.0 }}</td>
+                            <td>{{  reviewCategoryList.0.1 }}</td>
 
-                        <td>
-                       {% for titleWord in reviewCategoryList.0.2 %}
-                        {{  titleWord }}
-                       {% endfor %}
-                        </td>
+                            <td>
+                           {% for titleWord in reviewCategoryList.0.2 %}
+                            {{  titleWord }}
+                           {% endfor %}
+                            </td>
 
+                             <td>
+                           {% for reviewWord in reviewCategoryList.0.3 %}
+                            {{  reviewWord }}
+                           {% endfor %}
+                            </td>
 
-                         <td>
-                       {% for reviewWord in reviewCategoryList.0.3 %}
-                        {{  reviewWord }}
-                       {% endfor %}
-                        </td>
-
-                      </tr>
-
-
-        {% endfor %}
-              </tbody>
+                          </tr>
+                    {% endfor %}
+                </tbody>
 
             </table>
-
+        </div>
 
 
 

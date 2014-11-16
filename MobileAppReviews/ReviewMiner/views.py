@@ -17,17 +17,23 @@ def appReviewUploadDone(request):
     #https://docs.djangoproject.com/en/1.7/topics/http/file-uploads/
     if request.method == 'POST':
 
-        file1 = request.FILES['file']
+        if 'file' in request.FILES:
+            file1 = request.FILES['file']
+            with open('uploaded_files/ReviewMiner/Test2.csv', 'wb+') as destination:
+                for chunk in file1.chunks():
+                    destination.write(chunk)
+            callingClass = ReviewsProcessing()
+            allReviews, allIndividualReviews = callingClass.getprocessedreviews()
+            totalList = []
+            print(len(allIndividualReviews))
+            totalList.append(allReviews)
+            totalList.append(allIndividualReviews)
 
-        with open('uploaded_files/ReviewMiner/Test2.csv', 'wb+') as destination:
-            for chunk in file1.chunks():
-                destination.write(chunk)
-        callingClass = ReviewsProcessing()
-        allReviews, allIndividualReviews = callingClass.getprocessedreviews()
-        totalList = []
-        print(len(allIndividualReviews))
-        totalList.append(allReviews)
-        totalList.append(allIndividualReviews)
+            return render(request, 'ReviewMiner/Output.html', {'totalList':totalList})
 
-        return render(request, 'ReviewMiner/Output.html', {'totalList':totalList})
-    return render_to_response('ReviewMiner/Home.html')
+        return render_to_response('ReviewMiner/Home.html')
+
+def about(request):
+    template = loader.get_template('ReviewMiner/About.html')
+    context = RequestContext(request)
+    return HttpResponse(template._render(context))

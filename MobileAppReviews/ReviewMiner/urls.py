@@ -8,5 +8,7 @@ urlpatterns = patterns('',
                        url(r'^$', views.appReview, name='appReview'),
 
                        url(r'^appreview$', views.appReview, name='appReview'),
-                       url(r'^UploadDone$', views.appReviewUploadDone, name='uploadComplete'),
+                       url(r'^output$', views.appReviewUploadDone, name='output'),
+                       url(r'^home$', views.appReview, name='home'),
+                       url(r'^about$', views.about, name='about'),
                        )

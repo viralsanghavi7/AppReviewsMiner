@@ -1,5 +1,3 @@
-from encodings.punycode import selective_find
-
 __author__ = 'Chetan'
 
 import csv
@@ -113,25 +111,17 @@ class ReviewsProcessing:
 
     def getprocessedreviews(self):
 
-
-
-         #file = open('uploaded_files/ReviewMiner/test1.csv')
-        #freader = csv.reader(file, quotechar = '"')
         file2 = open('uploaded_files/ReviewMiner/Test2.csv', 'rt', encoding='utf-16')
-        #freader = csv.reader(file2)
         freader = csv.reader(x.replace('\0', '') for x in file2)
 
-        #freader = csv.reader(data)
-        print('csv reader done.')
+        #print('csv reader done.')
         #freader.__next__()
         #print(freader.__next__())
 
         counter = 0
         dictOfColumns = {}
         for m in freader.__next__():
-            #print(m)
             dictOfColumns[m] = counter
-            #print(dictOfColumns[m])
             counter = counter + 1
 
         #print(dictOfColumns['Review Text'])
@@ -141,8 +131,6 @@ class ReviewsProcessing:
                 self.reviews.append(row[dictOfColumns['Review Text']])
                 d = datetime.strptime(row[dictOfColumns['Review Submit Date and Time']],'%Y-%m-%dT%H:%M:%SZ')
                 self.all_reviews.append([d.strftime("%m/%d/%Y",),row[dictOfColumns['Star Rating']],row[dictOfColumns['Review Title']].split(),row[dictOfColumns['Review Text']].split()])
-
-
 
         stopwords = nltk.corpus.stopwords.words('english')
 
@@ -280,7 +268,7 @@ class ReviewsProcessing:
     # #         print(member)
     # #
     # #     print(general)
-        self.general_final_list.sort(key=lambda x: x[2], reverse=True)
+        self.general_final_list.sort(key=lambda x: x[4], reverse=True)
     # #     for member in general_final_list:
     # #         print(member)
         self.individual_review_list.sort(key=lambda x:x[3], reverse=True)
@@ -294,6 +282,8 @@ class ReviewsProcessing:
         self.all_processed_review.append([self.request_final_list,self.request])
 
         return  (self.all_processed_review,self.individual_review_list)
+
+
     def reset_individual_review_variables(self):
 
         self.individual_review_score = 0
