@@ -4,10 +4,13 @@
 
 var $ = window.$;
 
+var divIdChange = "";
      function changeSelection(divId){
 
-                divIdChange = "'#" + divId + "'";
 
+
+                $(divIdChange).removeClass("criteria_links_click");
+                divIdChange = "#criteria_" + divId + "";
 
                 document.getElementById('Performance').style.display = 'none';
                 document.getElementById('UserInterface').style.display = 'none';
@@ -18,8 +21,12 @@ var $ = window.$;
                 document.getElementById(divId).style.display = 'block';
 
                 $('#criteria_links').height(
-                    $(divIdChange).height()
+                    $(divId).height()
                 );
+
+                $(divIdChange).addClass("criteria_links_click");
+
+
 
             }
 
@@ -44,5 +51,6 @@ var $ = window.$;
 
     $( document ).ready(function() {
         changeSelection("all_reviews");
+
     });
 
