@@ -3,7 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.shortcuts import render, render_to_response
 
-from ReviewMiner.reviewsProcessing import ReviewsProcessing
+from ReviewMiner.Algorithm.reviewsProcessing import ReviewsProcessing
+from ReviewMiner.Algorithm.categories import categories
 
 
 # Create your views here.
@@ -22,12 +23,27 @@ def appReviewUploadDone(request):
             with open('uploaded_files/ReviewMiner/Test2.csv', 'wb+') as destination:
                 for chunk in file1.chunks():
                     destination.write(chunk)
+
+            categories.rating = request.POST.get('rating')
+
             callingClass = ReviewsProcessing()
-            allReviews, allIndividualReviews = callingClass.getprocessedreviews()
+            allReviews,allIndividualReviews = callingClass.getprocessedreviews()
             totalList = []
-            print(len(allIndividualReviews))
+            chartData = {}
+            chartData = [len(allReviews[0][0]),
+                         len(allReviews[1][0]),
+                         len(allReviews[2][0]),
+                         len(allReviews[3][0]),
+                         len(allReviews[4][0])]
+
+            print(chartData)
             totalList.append(allReviews)
             totalList.append(allIndividualReviews)
+            totalList.append(chartData)
+
+
+
+
 
             return render(request, 'ReviewMiner/Output.html', {'totalList':totalList})
 

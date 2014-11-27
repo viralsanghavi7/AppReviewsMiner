@@ -28,9 +28,22 @@
             <p><a href="{% url 'ReviewMiner:about'%}" class="btn btn-primary btn-lg" role="button">Read more &raquo;</a></p>
         </div>
 
+
         <form action="{% url 'ReviewMiner:output'%}" method="post" enctype="multipart/form-data">
+
+        <div><span> Rating </span>
+        <select  name="rating" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3" selected>3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+        </select> <span> and below </span>
+        </div></br>
+
              {% csrf_token %}
-            <input id="uploadbutton" type="file" class="btn btn-sm btn-default" value="Browse" name="file" accept="csv" />
+
+            <input id="uploadbutton" type="file" required="true" class="btn btn-sm btn-default" value="Browse" name="file" accept="csv" />
             <br />
             <input type="submit" value="See output" class="btn btn-primary" />
         </form>

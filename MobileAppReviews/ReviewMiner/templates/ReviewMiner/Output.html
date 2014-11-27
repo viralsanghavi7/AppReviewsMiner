@@ -8,11 +8,14 @@
     <li id="liOutput" class="active"><a href="#">Output</a></li>
 {% endblock %}
 
+
+
+
 {% block content %}
         <div class="page-header">
         <h1>App Review Mining Output</h1>
         </div>
-        <a href="{% url 'ReviewMiner:home'%}" class="btn btn-primary btn-lg pull-right" role="button">Try Again</a>
+        <a href="{% url 'ReviewMiner:home'%}" class="btn pull-right" role="button">Try Again</a>
 
         <div id="criteria_links" class="nav-container criteria_links" style="float: left; height: auto">
             <ul class="nav navbar-right">
@@ -27,14 +30,18 @@
             </ul>
         </div>
 
-
+         <div id="all_review_buttons">
+            <button id='text_view' onclick='changeView("text");' class="btn text-button" role="button">Text</button>
+            <button id='graph_view' onclick='changeView("graph");'class="btn graph-button" role="button">Graph</button>
+         </div>
+         <div id="after_review_buttons"></div>
         {% for reviewCategoryList in totalList.0 %}
 
 
             <div id="{{reviewCategoryList.1}}" class="col-xs-10 review_table">
                 <table class="table" style="width:100%">
                     <col width="100">
-                    <col width="20">
+                    <col width="10">
                     <col width="100">
                     <col width="600">
                     <thead>
@@ -117,9 +124,9 @@
         <div id="all_reviews" class="col-xs-10 col-sm-14 review_table">
             <table class="table" style="width:100%">
                 <col width="100">
-                <col width="20">
+                <col width="10">
                 <col width="100">
-                <col width="300">
+                <col width="600">
                 <thead>
                   <tr>
 
