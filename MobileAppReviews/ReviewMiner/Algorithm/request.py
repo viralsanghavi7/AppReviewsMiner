@@ -10,7 +10,7 @@ class request(categories):
     def check_for_review_tags(self):
         if categories.criteria_word != "":
              if categories.criteria_word in categories.review_line:
-              self.review_hit_tags.append(categories.criteria_word)
+              self.review_hit_tags.append(categories.criteria_word+".")
               self.total_score += int(categories.score)
 
 

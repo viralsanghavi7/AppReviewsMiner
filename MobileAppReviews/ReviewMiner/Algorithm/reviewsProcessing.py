@@ -7,7 +7,7 @@ from nltk import word_tokenize
 import xlrd
 import time
 from datetime import datetime
-from nltk.tokenize import WhitespaceTokenizer
+from nltk.tokenize import wordpunct_tokenize
 from ReviewMiner.Algorithm.categories import categories
 from ReviewMiner.Algorithm.performance import performance
 from ReviewMiner.Algorithm.userInterface import userInterface
@@ -77,12 +77,12 @@ class ReviewsProcessing():
 
         for review in self.reviews:
             #print(review)
-            self.tokenized.append(WhitespaceTokenizer().tokenize(review))
+            self.tokenized.append(wordpunct_tokenize(review))
 
         reviews = self.tokenized
 
-        #for review_line in self.all_reviews:
-        #            print(review_line)
+
+
 
         #for x in self.tokenized:
         #   print(x)
@@ -131,7 +131,7 @@ class ReviewsProcessing():
                             categories.review_line = self.reviews[review_line_count]
                             self.request_object.check_for_review_tags()
                         else:
-                            for review_word in reviews[review_line_count]:
+                            for review_word in self.all_reviews[review_line_count][3]:
                                 categories.review_word = review_word
                                 if (name == 'Performance'):
                                     self.performance_object.check_for_review_tags()
@@ -148,6 +148,7 @@ class ReviewsProcessing():
                                                            self.performance_object.review_hit_tags
                     , self.performance_object.title_hit_tags, self.performance_object.total_score])
             self.performance_object.populate_initial_review_list()
+
 
             if self.compatibility_object.total_score != 0:
                 self.compatibility_object.final_list.append([self.all_reviews[review_line_count],
@@ -168,7 +169,10 @@ class ReviewsProcessing():
                                                        self.request_object.category_name,
                                                        self.request_object.review_hit_tags,
                                                        self.request_object.title_hit_tags,
-                                                       self.request_object.total_score])
+                                                       self.request_object.total_score,
+                                                       " ".join(self.request_object.review_hit_tags)]
+                )
+
             self.request_object.populate_initial_review_list()
             if self.general_object.total_score != 0:
                 self.general_object.final_list.append([self.all_reviews[review_line_count],

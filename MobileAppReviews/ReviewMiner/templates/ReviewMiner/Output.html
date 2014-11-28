@@ -81,18 +81,25 @@
                         <td>
 
                             {% if reviewList.2 %}
-                             {%  for hitWord in reviewList.2%}
+
+
 
                                     {% for reviewWord in reviewList.0.3 %}
 
                                         {% if reviewList.1 == 'Request' %}
-                                            {% if reviewWord in hitWord %}
-                                            <b>{{reviewWord}}</b>
+
+
+
+                                            {% if reviewWord in reviewList.5%}
+                                                <b>{{reviewWord}}</b>
                                             {% else %}
-                                                {{reviewWord}}
+                                                  {{reviewWord}}
                                             {% endif %}
+
+
                                          {%  else %}
-                                            {% if hitWord == reviewWord%}
+
+                                            {% if reviewWord in reviewList.2%}
                                                 <b>{{reviewWord}}</b>
                                             {% else %}
                                                 {{reviewWord}}
@@ -100,7 +107,7 @@
                                         {% endif %}
                                     {%  endfor %}
 
-                             {%  endfor %}
+
                             {% else %}
                                     {% for reviewWord in reviewList.0.3 %}
                                             {{reviewWord}}

@@ -82,8 +82,10 @@ class categories(object):
                                 if categories.criteria_word != "":
 
                                     if categories.criteria_word in categories.title_single_word and categories.criteria_word[0:categories.string_length] == categories.title_single_word[0:categories.string_length]:
+
                                          self.title_hit_tags.append(categories.title_word)
                                          self.total_score += int(categories.score)
+
                                     #     categories.individual_review_tags.append(categories.title_word)
                                      #    categories.individual_review_score += categories.score
 
@@ -94,8 +96,11 @@ class categories(object):
             categories.temp_string = str(categories.review_word).lower().replace('\'','')
             categories.string_length = len(categories.criteria_word)
             if categories.criteria_word in categories.temp_string and categories.criteria_word[0:categories.string_length] == categories.temp_string[0:categories.string_length]:
+
                 self.review_hit_tags.append(categories.review_word)
+
                 self.total_score += int(categories.score)
+
                # categories.individual_review_tags.append(categories.review_word)
                # categories.individual_review_score += categories.score
 
