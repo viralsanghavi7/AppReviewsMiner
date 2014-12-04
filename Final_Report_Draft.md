@@ -13,7 +13,7 @@ Every application in mobile application store gets hundreds of reviews. Some of 
 
 ##Workflow
 Every android application developer gets their review data in csv (comma separated value) format from google. If you are an android mobile developer then you can get your review data by following the steps give at following link.
-- [Get the reviews data from play store for your android app]
+- [Get the reviews data from Google play store](https://support.google.com/googleplay/android-developer/answer/138230?hl=en)
 
 The project is a web application which allows the developer to upload their csv file on the site. It also allows to filter reviews based on rating level.
 ![Home](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/HomePage.jpg)
@@ -38,11 +38,11 @@ http://youtu.be/o0jNeUcssU0
 
 ##Technologies and Architecture
 No doubt that we got to learn lot of new technologies and implement them. 
-* Our application is developed completely in *[Python]*. Since Python is very flexible, easy to use and very powerful language, we decided to try our hands on this language through this project.
-* It uses *[Python Natural Language Toolkit] (NLTK)* to perform the natural language processing of the review text. Python NLTK has rich set functionality and documentation available, which allows the text parsing in easy and effective manner.
-* Web application is developed in *[Django framework]* for Python which is very again useful and easy to manage framework.
+* Our application is developed completely in [Python](https://www.python.org/). Since Python is very flexible, easy to use and very powerful language, we decided to try our hands on this language through this project.
+* It uses [Python Natural Language Toolkit](http://www.nltk.org/) to perform the natural language processing of the review text. Python NLTK has rich set functionality and documentation available, which allows the text parsing in easy and effective manner.
+* Web application is developed in [Django framework](https://www.djangoproject.com/) for Python which is very again useful and easy to manage framework.
 * We are using strategy architecture pattern behind this code logic. It basically identifies various improvement areas and applies respective strategy to parse the review text for that particular improvement area.
-* We are using *[bootstrap]* framework to display the web page. 
+* We are using [bootstrap](http://getbootstrap.com/) framework to display the web page. 
 
 
 ##Limitations and Future scope
@@ -54,7 +54,7 @@ No doubt that we got to learn lot of new technologies and implement them.
 * We can provide the option of extracting the output which we are getting on the web application and should allow the user to save the results so as to refer the output again when offline.
 
 ##Acknowledgement
-We are thankful to Dr. Christopher J Parnin for continuous guidance and constant support through out the project.
+We are thankful to [Dr. Christopher J Parnin](https://www.chrisparnin.me/) for continuous guidance and constant support through out the project.
 
 ##References
 * [Why People Hate Your App — Making Sense of User Feedback in a Mobile App Store]
@@ -62,11 +62,9 @@ KDD’13, August 11–14, 2013, Chicago, Illinois, USA
 * [AR-Miner: Mining Informative Reviews for Developers from Mobile App Marketplace]
 ICSE ’14, May 31-June 7, 2014, Hyderabad, India
 
-[Get the reviews data from play store for your android app]:(https://support.google.com/googleplay/android-developer/answer/138230?hl=en)
-[Python]:(https://www.python.org/)
-[Python Natural Language Toolkit]:(http://www.nltk.org/)
-[Django framework]:(https://www.djangoproject.com/)
-[bootstrap]:(http://getbootstrap.com/)
-[Dr. Christopher J Parnin]:(http://www.chrisparnin.me/)
+
+
+
+
 [Why People Hate Your App — Making Sense of User Feedback in a Mobile App Store]:(http://www.cs.cmu.edu/~leili/pubs/fu-kdd2013-wiscom.pdf)
 [AR-Miner: Mining Informative Reviews for Developers from Mobile App Marketplace]:(http://www.cais.ntu.edu.sg/~nchen1/AR-Miner/icse14-preprint.pdf)
