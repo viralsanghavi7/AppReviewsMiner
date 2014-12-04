@@ -8,7 +8,7 @@ var divIdChange = "";
      function changeSelection(divId){
 
 
-
+                $('#criteria_all_reviews').removeClass('criteria_links_click');
                 $(divIdChange).removeClass("criteria_links_click");
                 divIdChange = "#criteria_" + divId + "";
 
@@ -116,6 +116,8 @@ function drawChart(data){
 
         }
         else{
+             $(divIdChange).removeClass('criteria_links_click');            
+             $('#criteria_all_reviews').addClass('criteria_links_click');
              document.getElementById('Performance').style.display = 'none';
              document.getElementById('UserInterface').style.display = 'none';
              document.getElementById('Compatibility').style.display = 'none';
