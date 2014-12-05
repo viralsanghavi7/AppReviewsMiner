@@ -12,27 +12,30 @@ Every application in mobile application store gets hundreds of reviews. Some of 
 * This application also displays the **statistics in graphical form** based on how these reviews are categorized. This will help developers to focus on particular area of improvement for their application.
 
 ##Workflow
-Every android application developer gets their review data in csv (comma separated value) format from google. If you are an android mobile developer then you can get your review data by following the steps give at following link.
+Every android application developer gets their review data in csv (comma separated value) format from google. If you are an android mobile developer then you can get your review data by following the steps given at following link.
 - [Get the reviews data from Google play store](https://support.google.com/googleplay/android-developer/answer/138230?hl=en)
+
 
 The project is a web application which allows the developer to upload their csv file on the site. It also allows to filter reviews based on rating level.
 ![Home](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/HomePage.jpg)
 
-Then we have defined various criteria for mobile applications such as Performance, User Interface, Compatibility, Request by User, General improvements. When user clicks on `upload` button on the home page, it will show the reviews which are most helpful from application improvement perspecitve.
+
+Then we have defined various criteria for mobile applications such as Performance, User Interface, Compatibility, Request by user and  General improvements. When user clicks on `upload` button on the home page, it will show the reviews which are most helpful from application improvement perspecitve.
 ![AllReviews](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/AllReviews.JPG)
 
 
 This application will parse each review to perform natural language processing on each of the review text and it tries to find out the whether the review is related to performance, compatibility or any other criteria.
 
->For example, If a review says `‘very slow	It takes lot of time to update call directory and hangs many times’` This type of review is helpful for mobile developer. It will allow developer to understand what the problem is and decide upon the appropriate action to take to improve. Like in this review, developer came to know that there are some issues with call directory update and something makes this operation slow. The application will categorize this review in the category of Performance and highlight words like 'slow' and  'hangs'.
+For example, If a review says `‘very slow,	It takes lot of time to update call directory and hangs many times’` This type of review is helpful for mobile developer. It will allow developer to understand what the problem is and decide upon the appropriate action to take to improve. Like in this review, developer came to know that there are some issues with call directory update and something makes this operation slow. The application will categorize this review in the category of Performance and highlight words like 'slow' and  'hangs'.
 ![CategoryView](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/CategoryView.JPG)
+
 
 For better view and easy interface to grasp information, there is a visual graph added which is ploted based on number of reviews in each category. From the graph user can deduce that there is more scope for improvement in general category compare to others. Also, people are facing more user interafce issues compare to performance.
 ![GraphView.JPG](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/GraphView.JPG)
 
 
 For detailed understanding of the application working please refer following video: 
-http://youtu.be/o0jNeUcssU0
+http://youtu.be/a1TOYE8GI8g
 
 
 
