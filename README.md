@@ -17,21 +17,21 @@ Every android application developer gets their review data in csv (comma separat
 
 
 The project is a web application which allows the developer to upload their csv file on the site. It also allows to filter reviews based on rating level.
-![Home](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/HomePage.jpg)
+![Home](https://github.com/viralsanghavi7/AppReviewsMiner/blob/master/MobileAppReviews/ReviewMiner/static/Images/HomePage.jpg)
 
 
 Then we have defined various criteria for mobile applications such as Performance, User Interface, Compatibility, Request by user and  General improvements. When user clicks on `upload` button on the home page, it will show the reviews which are most helpful from application improvement perspecitve.
-![AllReviews](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/AllReviews.JPG)
+![AllReviews](https://github.com/viralsanghavi7/AppReviewsMiner/blob/master/MobileAppReviews/ReviewMiner/static/Images/AllReviews.JPG)
 
 
 This application will parse each review to perform natural language processing on each of the review text and it tries to find out the whether the review is related to performance, compatibility or any other criteria.
 
 For example, If a review says `‘very slow,	It takes lot of time to update call directory and hangs many times’` This type of review is helpful for mobile developer. It will allow developer to understand what the problem is and decide upon the appropriate action to take to improve. Like in this review, developer came to know that there are some issues with call directory update and something makes this operation slow. The application will categorize this review in the category of Performance and highlight words like 'slow' and  'hangs'.
-![CategoryView](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/CategoryView.JPG)
+![CategoryView](https://github.com/viralsanghavi7/AppReviewsMiner/blob/master/MobileAppReviews/ReviewMiner/static/Images/CategoryView.JPG)
 
 
 For better view and easy interface to grasp information, there is a visual graph added which is ploted based on number of reviews in each category. From the graph user can deduce that there is more scope for improvement in general category compare to others. Also, people are facing more user interafce issues compare to performance.
-![GraphView.JPG](https://github.ncsu.edu/CSC510-Fall2014/Technical-AppReviews/raw/master/MobileAppReviews/ReviewMiner/static/Images/GraphView.JPG)
+![GraphView.JPG](https://github.com/viralsanghavi7/AppReviewsMiner/blob/master/MobileAppReviews/ReviewMiner/static/Images/GraphView.JPG)
 
 
 For detailed understanding of the application working please refer following video: 
@@ -60,9 +60,9 @@ No doubt that we got to learn lot of new technologies and implement them.
 We are thankful to [Dr. Christopher J Parnin](https://www.chrisparnin.me/) for continuous guidance and constant support through out the project.
 
 ##References
-* [Why People Hate Your App — Making Sense of User Feedback in a Mobile App Store]
+* [Why People Hate Your App — Making Sense of User Feedback in a Mobile App Store](http://www.cs.cmu.edu/~leili/pubs/fu-kdd2013-wiscom.pdf)
 KDD’13, August 11–14, 2013, Chicago, Illinois, USA
-* [AR-Miner: Mining Informative Reviews for Developers from Mobile App Marketplace]
+* [AR-Miner: Mining Informative Reviews for Developers from Mobile App Marketplace](http://www.cais.ntu.edu.sg/~nchen1/AR-Miner/icse14-preprint.pdf)
 ICSE ’14, May 31-June 7, 2014, Hyderabad, India
 
 
